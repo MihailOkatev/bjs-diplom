@@ -1,3 +1,4 @@
+"use strict"
 const logoutBtn = new LogoutButton;
 logoutBtn.action = (data) => {
     return ApiConnector.logout(response => {
@@ -62,10 +63,10 @@ balance.sendMoneyCallback = data => {
         if(response.success === true) {
             ProfileWidget.showProfile(response.data);
             let isError = false;
-            balance.setMessage(isError, "Полполнение счета прошло успешно");
+            balance.setMessage(isError, "Перевод прошел успешно");
         } else {
             let isError = true;
-            balance.setMessage(isError,"Ошибка пополнения счета");
+            balance.setMessage(isError,"Перевод не удался");
         }
     });
 }
